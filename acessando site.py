@@ -1,15 +1,9 @@
 
-import pyautogui
-from time import sleep
+from selenium import webdriver
+
 from urllib import request
 from ex97 import escreva
-def automatico():
-            pyautogui.PAUSE=0.3
-            pyautogui.press('win')
-            pyautogui.write('edge')
-            pyautogui.press('enter')
-            pyautogui.write(user)
-            pyautogui.press('enter')
+
 while True:
     user=input('escreva um endereço de internet:').strip()
 
@@ -20,8 +14,9 @@ while True:
             print('não encontramos o endereço!')
         else:
             print('site estar acessivel!')
-            sleep(1)
-            automatico()
+            navegador=webdriver.Firefox()
+            site=navegador.get(user)
+            
       
             
             ad_site=open('save_site.txt','at+')
